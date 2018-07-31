@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  * @author PC
  */
 public class VistaMru extends javax.swing.JFrame {
-
+  
     /**
      * Creates new form VistaMru
      */
@@ -59,6 +59,7 @@ public class VistaMru extends javax.swing.JFrame {
         lblCarro = new javax.swing.JLabel();
         lblPlano = new javax.swing.JLabel();
         bntNuevo = new javax.swing.JButton();
+        btnMenu = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -164,7 +165,15 @@ public class VistaMru extends javax.swing.JFrame {
                 bntNuevoActionPerformed(evt);
             }
         });
-        getContentPane().add(bntNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 360, -1, -1));
+        getContentPane().add(bntNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 360, -1, -1));
+
+        btnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mru/home_house_3526.png"))); // NOI18N
+        btnMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 350, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mru/asdfghhl.jpg"))); // NOI18N
         jLabel4.setText("jLabel4");
@@ -320,6 +329,10 @@ public class VistaMru extends javax.swing.JFrame {
        txtDistancia.setEditable(true);
     }//GEN-LAST:event_bntNuevoActionPerformed
 
+    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
+        
+    }//GEN-LAST:event_btnMenuActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -359,6 +372,7 @@ public class VistaMru extends javax.swing.JFrame {
     public javax.swing.ButtonGroup Calculos;
     private javax.swing.JButton bntNuevo;
     private javax.swing.JButton btnCalcular;
+    private javax.swing.JButton btnMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

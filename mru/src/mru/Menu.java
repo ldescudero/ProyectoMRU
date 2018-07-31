@@ -10,7 +10,8 @@ package mru;
  * @author PC
  */
 public class Menu extends javax.swing.JFrame {
-    VistaMru ventana=new VistaMru();
+    static VistaMru ventana=new VistaMru();
+    
     /**
      * Creates new form Menu
      */
@@ -104,6 +105,7 @@ public class Menu extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Menu().setVisible(true);
+               ventana.setResizable(false);
             }
         });
     }
