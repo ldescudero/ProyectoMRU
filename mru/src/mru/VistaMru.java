@@ -7,6 +7,7 @@ package mru;
 
 import java.util.Timer;
 import java.util.TimerTask;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -57,6 +58,7 @@ public class VistaMru extends javax.swing.JFrame {
         rbtnDistancia = new javax.swing.JRadioButton();
         lblCarro = new javax.swing.JLabel();
         lblPlano = new javax.swing.JLabel();
+        bntNuevo = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -156,6 +158,14 @@ public class VistaMru extends javax.swing.JFrame {
         lblPlano.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mru/fondo.PNG"))); // NOI18N
         getContentPane().add(lblPlano, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, -1, -1));
 
+        bntNuevo.setText("Nuevo calculo");
+        bntNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntNuevoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bntNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 360, -1, -1));
+
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mru/asdfghhl.jpg"))); // NOI18N
         jLabel4.setText("jLabel4");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 420));
@@ -194,11 +204,20 @@ public class VistaMru extends javax.swing.JFrame {
             btnCalcular.setEnabled(true);
              vaciar();
     }//GEN-LAST:event_rbtnTiempoActionPerformed
-
+     public void deshabilitar(){
+            rbtnVelocidad.setEnabled(false);
+       rbtnTiempo.setEnabled(false);
+       rbtnDistancia.setEnabled(false);
+       txtTiempo.setEditable(false);
+       txtVelocidad.setEditable(false);
+       txtDistancia.setEditable(false);
+     }
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
        
-        double resultado=0.0;
+       double resultado=0.0;
        double velocidad=0.0;
+       try{
+           deshabilitar();
        lblCarro.setLocation(400, lblCarro.getY());
        
       TimerTask timerTask = new TimerTask() 
@@ -236,7 +255,12 @@ public class VistaMru extends javax.swing.JFrame {
        }
              timer=new Timer();  
      timer.scheduleAtFixedRate(timerTask, 0, Math.abs((int)(1000/velocidad)));
-      
+       
+       }
+       catch(Exception e)
+       {
+           JOptionPane.showMessageDialog(null, "Error de ingreso de datos");
+       }
            
     }//GEN-LAST:event_btnCalcularActionPerformed
     public void vaciar(){
@@ -287,6 +311,15 @@ public class VistaMru extends javax.swing.JFrame {
           } 
     }//GEN-LAST:event_txtDistanciaKeyTyped
 
+    private void bntNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntNuevoActionPerformed
+        rbtnVelocidad.setEnabled(true);
+       rbtnTiempo.setEnabled(true);
+       rbtnDistancia.setEnabled(true);
+        txtTiempo.setEditable(true);
+       txtVelocidad.setEditable(true);
+       txtDistancia.setEditable(true);
+    }//GEN-LAST:event_bntNuevoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -324,6 +357,7 @@ public class VistaMru extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.ButtonGroup Calculos;
+    private javax.swing.JButton bntNuevo;
     private javax.swing.JButton btnCalcular;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

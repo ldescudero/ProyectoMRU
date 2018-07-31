@@ -10,7 +10,7 @@ package mru;
  * @author PC
  */
 public class Menu extends javax.swing.JFrame {
-
+    VistaMru ventana=new VistaMru();
     /**
      * Creates new form Menu
      */
@@ -39,6 +39,11 @@ public class Menu extends javax.swing.JFrame {
 
         btnMRU.setBackground(new java.awt.Color(204, 255, 255));
         btnMRU.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mru/Sin título3.png"))); // NOI18N
+        btnMRU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMRUActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnMRU, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, 130, 60));
 
         btnMCU.setBackground(new java.awt.Color(204, 255, 255));
@@ -63,6 +68,10 @@ public class Menu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnMRUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMRUActionPerformed
+        ventana.show();
+    }//GEN-LAST:event_btnMRUActionPerformed
 
     /**
      * @param args the command line arguments
