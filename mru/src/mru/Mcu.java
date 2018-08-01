@@ -20,4 +20,7 @@ public class Mcu {
     public double calcularTiempo(double angulo,double velocidadAngular){
         return angulo/velocidadAngular;
     }
+    public double gradosARadianes(double grados){
+        return (grados*Math.PI)/180;
+    }
 }
