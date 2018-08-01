@@ -34,6 +34,7 @@ public class VistaMcu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel9 = new javax.swing.JLabel();
         rbtnTiempo = new javax.swing.JRadioButton();
         jLabel5 = new javax.swing.JLabel();
@@ -58,6 +59,7 @@ public class VistaMcu extends javax.swing.JFrame {
 
         jLabel9.setText("Calcular");
 
+        buttonGroup1.add(rbtnTiempo);
         rbtnTiempo.setText("Tiempo");
         rbtnTiempo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,6 +121,7 @@ public class VistaMcu extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(rbtnVelocidad);
         rbtnVelocidad.setText("Velocidad Angular");
         rbtnVelocidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,6 +138,7 @@ public class VistaMcu extends javax.swing.JFrame {
 
         jLabel7.setText("Angulo");
 
+        buttonGroup1.add(rbtnDistancia);
         rbtnDistancia.setText("Angulo");
         rbtnDistancia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -310,7 +314,7 @@ public class VistaMcu extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAnguloKeyTyped
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-
+        dispose();
     }//GEN-LAST:event_btnMenuActionPerformed
 
     private void txtTiempoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTiempoActionPerformed
@@ -435,6 +439,7 @@ public class VistaMcu extends javax.swing.JFrame {
     private javax.swing.JButton bntNuevo;
     private javax.swing.JButton btnCalcular;
     private javax.swing.JButton btnMenu;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

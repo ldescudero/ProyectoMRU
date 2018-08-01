@@ -11,7 +11,7 @@ package mru;
  */
 public class Menu extends javax.swing.JFrame {
     static VistaMru ventana=new VistaMru();
-    
+    static VistaMcu ventanaMcu=new VistaMcu();
     /**
      * Creates new form Menu
      */
@@ -49,6 +49,11 @@ public class Menu extends javax.swing.JFrame {
 
         btnMCU.setBackground(new java.awt.Color(204, 255, 255));
         btnMCU.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mru/Sin título2.png"))); // NOI18N
+        btnMCU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMCUActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnMCU, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, 130, 60));
 
         btnMCUV.setBackground(new java.awt.Color(204, 255, 255));
@@ -61,6 +66,11 @@ public class Menu extends javax.swing.JFrame {
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mru/exit_icon-icons.com_70975.png"))); // NOI18N
         jButton1.setText("SALIR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 400, 130, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mru/intro.png"))); // NOI18N
@@ -73,6 +83,14 @@ public class Menu extends javax.swing.JFrame {
     private void btnMRUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMRUActionPerformed
         ventana.show();
     }//GEN-LAST:event_btnMRUActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        System.exit( 0 ); 
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnMCUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMCUActionPerformed
+        ventanaMcu.show();
+    }//GEN-LAST:event_btnMCUActionPerformed
 
     /**
      * @param args the command line arguments

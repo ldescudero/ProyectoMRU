@@ -330,7 +330,7 @@ public class VistaMru extends javax.swing.JFrame {
     }//GEN-LAST:event_bntNuevoActionPerformed
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
-        
+       dispose();
     }//GEN-LAST:event_btnMenuActionPerformed
 
     /**
