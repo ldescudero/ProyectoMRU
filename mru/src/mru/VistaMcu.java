@@ -362,7 +362,7 @@ public class VistaMcu extends javax.swing.JFrame {
             if(txtAngulo.isEnabled()==false){
                 velocidad=Double.parseDouble(txtVelocidadAngular.getText());
                 resultado=mcu.calcularAngulo( Double.parseDouble(txtTiempo.getText()),velocidad);
-                lblResultado.setText(""+resultado+" radianes");
+                lblResultado.setText(""+resultado+" grados");
             }
             if(txtVelocidadAngular.isEnabled()==false){
 
