@@ -5,6 +5,8 @@
  */
 package proyectoFisica;
 
+import java.util.Timer;
+import java.util.TimerTask;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,9 +18,14 @@ public class VistaMcu extends javax.swing.JFrame {
     /**
      * Creates new form mcu
      */
+     private Timer timer;
+     private double velocidad;
+     private double g=0;
+    
     public VistaMcu() {
         initComponents();
         mcu=new Mcu();
+         timer=new Timer();
         btnCalcular.setEnabled(false);
         txtAngulo.setEnabled(false);
         txtVelocidadAngular.setEnabled(false);
@@ -53,17 +60,22 @@ public class VistaMcu extends javax.swing.JFrame {
         btnCalcular = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         rbtnDistancia = new javax.swing.JRadioButton();
+        lblCarro = new javax.swing.JLabel();
+        lblPlano = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtVelocidadAngular.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtVelocidadAngularKeyTyped(evt);
             }
         });
+        getContentPane().add(txtVelocidadAngular, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 90, 169, -1));
 
         jLabel9.setText("Calcular");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 37, -1, -1));
 
         buttonGroup1.add(rbtnTiempo);
         rbtnTiempo.setText("Tiempo");
@@ -72,10 +84,13 @@ public class VistaMcu extends javax.swing.JFrame {
                 rbtnTiempoActionPerformed(evt);
             }
         });
+        getContentPane().add(rbtnTiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 29, -1, -1));
 
         jLabel5.setText("radianes/s");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(378, 93, -1, -1));
 
         jLabel8.setText("grados");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(321, 172, -1, -1));
 
         bntNuevo.setText("Nuevo calculo");
         bntNuevo.addActionListener(new java.awt.event.ActionListener() {
@@ -83,22 +98,29 @@ public class VistaMcu extends javax.swing.JFrame {
                 bntNuevoActionPerformed(evt);
             }
         });
+        getContentPane().add(bntNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(644, 375, -1, -1));
 
         jLabel6.setText("s");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(321, 130, -1, -1));
 
         lblResultado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(lblResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 307, 178, 35));
 
         jLabel2.setText("Tiempo");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 132, -1, -1));
 
         jLabel1.setText("Velocidad Angular");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 93, -1, -1));
 
         txtAngulo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtAnguloKeyTyped(evt);
             }
         });
+        getContentPane().add(txtAngulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(146, 169, 169, -1));
 
         jLabel3.setText("Resultado");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 317, -1, -1));
 
         btnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/home_house_3526.png"))); // NOI18N
         btnMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -106,6 +128,7 @@ public class VistaMcu extends javax.swing.JFrame {
                 btnMenuActionPerformed(evt);
             }
         });
+        getContentPane().add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(784, 357, -1, -1));
 
         txtTiempo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,6 +140,7 @@ public class VistaMcu extends javax.swing.JFrame {
                 txtTiempoKeyTyped(evt);
             }
         });
+        getContentPane().add(txtTiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(146, 127, 169, -1));
 
         buttonGroup1.add(rbtnVelocidad);
         rbtnVelocidad.setText("Velocidad Angular");
@@ -125,6 +149,7 @@ public class VistaMcu extends javax.swing.JFrame {
                 rbtnVelocidadActionPerformed(evt);
             }
         });
+        getContentPane().add(rbtnVelocidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 29, -1, -1));
 
         btnCalcular.setText("Calcular");
         btnCalcular.addActionListener(new java.awt.event.ActionListener() {
@@ -132,8 +157,10 @@ public class VistaMcu extends javax.swing.JFrame {
                 btnCalcularActionPerformed(evt);
             }
         });
+        getContentPane().add(btnCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 227, -1, -1));
 
         jLabel7.setText("Angulo");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 168, -1, -1));
 
         buttonGroup1.add(rbtnDistancia);
         rbtnDistancia.setText("Angulo");
@@ -142,128 +169,17 @@ public class VistaMcu extends javax.swing.JFrame {
                 rbtnDistanciaActionPerformed(evt);
             }
         });
+        getContentPane().add(rbtnDistancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(409, 29, -1, -1));
+
+        lblCarro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/diagram-61_24456.png"))); // NOI18N
+        getContentPane().add(lblCarro, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 210, -1, -1));
+
+        lblPlano.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.PNG"))); // NOI18N
+        getContentPane().add(lblPlano, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/asdfghhl.jpg"))); // NOI18N
         jLabel4.setText("jLabel4");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(147, 147, 147)
-                        .addComponent(rbtnVelocidad)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(rbtnTiempo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(rbtnDistancia))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(146, 146, 146)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtAngulo, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel8))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel6)))))
-                .addContainerGap(466, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(23, 23, 23)
-                            .addComponent(jLabel1)
-                            .addGap(18, 18, 18)
-                            .addComponent(txtVelocidadAngular, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(5, 5, 5)
-                            .addComponent(jLabel5))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(30, 30, 30)
-                            .addComponent(jLabel2))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(610, 610, 610)
-                            .addComponent(bntNuevo))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(32, 32, 32)
-                            .addComponent(jLabel9))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(40, 40, 40)
-                            .addComponent(jLabel3))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(180, 180, 180)
-                            .addComponent(btnCalcular))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(750, 750, 750)
-                            .addComponent(btnMenu))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(22, 22, 22)
-                            .addComponent(jLabel7))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(110, 110, 110)
-                            .addComponent(lblResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 890, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rbtnVelocidad)
-                    .addComponent(rbtnTiempo)
-                    .addComponent(rbtnDistancia))
-                .addGap(69, 69, 69)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txtAngulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(240, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(83, 83, 83)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtVelocidadAngular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(3, 3, 3)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel1)
-                                        .addComponent(jLabel5))))
-                            .addGap(16, 16, 16)
-                            .addComponent(jLabel2)
-                            .addGap(223, 223, 223)
-                            .addComponent(bntNuevo))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(30, 30, 30)
-                            .addComponent(jLabel9))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(310, 310, 310)
-                            .addComponent(jLabel3))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(220, 220, 220)
-                            .addComponent(btnCalcular))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(350, 350, 350)
-                            .addComponent(btnMenu))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(161, 161, 161)
-                            .addComponent(jLabel7))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(300, 300, 300)
-                            .addComponent(lblResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -380,6 +296,24 @@ public class VistaMcu extends javax.swing.JFrame {
 
                 lblResultado.setText(""+resultado+" segundos");
             }
+              TimerTask timerTask = new TimerTask() 
+     { 
+         public void run()  
+         { 
+           if(g < 2 * Math.PI){
+               
+             lblCarro.setLocation((int)(+45+Math.abs(50 * (float)Math.cos(g)+100)),(int)(50+ Math.abs(50 * (float)Math.sin(g)+100)));
+               System.out.println(lblCarro.getLocation());
+               g += (float)Math.PI/12;
+           }else{    
+                btnCalcular.setEnabled(true);
+                 timer.cancel();
+           }
+         
+         } 
+     };
+              timer=new Timer();
+          timer.scheduleAtFixedRate(timerTask, 0, Math.abs((int)(100/velocidad)));
             
 
         }
@@ -449,6 +383,8 @@ public class VistaMcu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel lblCarro;
+    private javax.swing.JLabel lblPlano;
     private javax.swing.JLabel lblResultado;
     private javax.swing.JRadioButton rbtnDistancia;
     private javax.swing.JRadioButton rbtnTiempo;
