@@ -12,6 +12,8 @@ package mru;
 public class Menu extends javax.swing.JFrame {
     static VistaMru ventana=new VistaMru();
     static VistaMcu ventanaMcu=new VistaMcu();
+    static VistaMruV ventanaMruV=new VistaMruV();
+    static VistaMovParabolico ventanaMP=new VistaMovParabolico();
     /**
      * Creates new form Menu
      */
@@ -58,10 +60,20 @@ public class Menu extends javax.swing.JFrame {
 
         btnMCUV.setBackground(new java.awt.Color(204, 255, 255));
         btnMCUV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mru/Sin título6.png"))); // NOI18N
+        btnMCUV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMCUVActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnMCUV, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 300, 60));
 
         btnMRUV.setBackground(new java.awt.Color(204, 255, 255));
         btnMRUV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mru/Sin título4.png"))); // NOI18N
+        btnMRUV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMRUVActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnMRUV, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 130, 60));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mru/exit_icon-icons.com_70975.png"))); // NOI18N
@@ -91,6 +103,14 @@ public class Menu extends javax.swing.JFrame {
     private void btnMCUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMCUActionPerformed
         ventanaMcu.show();
     }//GEN-LAST:event_btnMCUActionPerformed
+
+    private void btnMRUVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMRUVActionPerformed
+        ventanaMruV.show();
+    }//GEN-LAST:event_btnMRUVActionPerformed
+
+    private void btnMCUVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMCUVActionPerformed
+        ventanaMP.show();
+    }//GEN-LAST:event_btnMCUVActionPerformed
 
     /**
      * @param args the command line arguments

@@ -35,15 +35,14 @@ public class VistaMcu extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        txtVelocidadAngular = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         rbtnTiempo = new javax.swing.JRadioButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         bntNuevo = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         lblResultado = new javax.swing.JLabel();
-        txtVelocidadAngular = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         txtAngulo = new javax.swing.JTextField();
@@ -54,8 +53,15 @@ public class VistaMcu extends javax.swing.JFrame {
         btnCalcular = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         rbtnDistancia = new javax.swing.JRadioButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        txtVelocidadAngular.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtVelocidadAngularKeyTyped(evt);
+            }
+        });
 
         jLabel9.setText("Calcular");
 
@@ -80,16 +86,7 @@ public class VistaMcu extends javax.swing.JFrame {
 
         jLabel6.setText("s");
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mru/asdfghhl.jpg"))); // NOI18N
-        jLabel4.setText("jLabel4");
-
         lblResultado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        txtVelocidadAngular.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtVelocidadAngularKeyTyped(evt);
-            }
-        });
 
         jLabel2.setText("Tiempo");
 
@@ -145,6 +142,9 @@ public class VistaMcu extends javax.swing.JFrame {
                 rbtnDistanciaActionPerformed(evt);
             }
         });
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mru/asdfghhl.jpg"))); // NOI18N
+        jLabel4.setText("jLabel4");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -59,6 +59,7 @@ public class VistaMruV extends javax.swing.JFrame {
         txtVelocidadF = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        btnMenu = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -191,6 +192,14 @@ public class VistaMruV extends javax.swing.JFrame {
 
         jLabel12.setText("m/s^2");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 211, -1, -1));
+
+        btnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mru/home_house_3526.png"))); // NOI18N
+        btnMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 350, -1, -1));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mru/asdfghhl.jpg"))); // NOI18N
         jLabel13.setText("jLabel4");
@@ -358,6 +367,10 @@ public class VistaMruV extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAceleracionActionPerformed
 
+    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnMenuActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -397,6 +410,7 @@ public class VistaMruV extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.ButtonGroup Calculos;
     private javax.swing.JButton btnCalcular;
+    private javax.swing.JButton btnMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
